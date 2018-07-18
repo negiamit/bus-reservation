@@ -1,0 +1,79 @@
+<div class="topnav" id="myTopnav">
+
+    <div class="dropdown" style="float:right;">
+
+        <button class="dropbtn">More <i class="fa fa-caret-down"></i> </button>
+        <div class="dropdown-content">
+	         <a href="history">History</a>
+           <a href="current">Current Bookings</a>
+	         <a href='/'> Logout </a>
+        </div>
+    </div>
+    <h1> Welcome {{Name}} </h1>
+</div>
+
+
+<center>
+<form name='booking' method="post" action="/home/search" style="border:3px solid #ccc; padding: 50px" onsubmit="return validateForm3()">
+
+ <div class="container">
+<b>From </b> <select name='city'>
+  <option value="Bangalore">Bangalore</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Chennai">Chennai</option>
+  <option value="Jaipur">Jaipur</option>
+</select> 
+<br>
+<b> To </b><select name='city2'>
+  <option value="Bangalore">Bangalore</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Chennai">Chennai</option>
+  <option value="Jaipur">Jaipur</option>
+</select>
+<br>
+<b> Travel Date </b> <input type="date" name="tdate" id="traveldate" onchange="findDay()">
+<br>
+<b> No of seats </b> <input type="number" name="seats" min="1" and max="5"> <br>
+<b> Type </b> <input type="radio" name="bustype" value="Non/AC" > Non/AC
+ <input type="radio" name="bustype" value="AC"> AC<br>
+<input type="hidden" name = "day" id="day">
+ <div class="clearfix">
+    <input type="submit" value="submit" >
+    <input type="reset" value="Reset"  > <br>
+</div>
+</div>
+
+</form>
+
+
+
+
+<script>
+    function findDay(){
+      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var tdate = document.getElementById('traveldate').value;
+      console.log(tdate);
+      var d = new Date(tdate);
+      console.log(d);
+      var dayName = days[d.getDay()];
+      console.log(dayName);
+      document.getElementById('day').setAttribute('value',dayName);
+      console.log("Date val"+document.getElementById('day').value);    
+    }
+  
+
+    function validateForm3(){
+      var city=document.forms["booking"]["city"].value;
+      var city2=document.forms["booking"]["city2"].value;
+      var tdate=document.forms["booking"]["tdate"].value
+      var seats=document.forms["booking"]["seats"].value;
+      var bustype=document.forms["booking"]["bustype"].value;
+      if(city==""||city2==""||tdate==""||seats==""||bustype=="") {
+          alert("Values must be entered");
+          return false;
+      }
+    }
+    
+
+
+</script>

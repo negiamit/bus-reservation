@@ -1,0 +1,36 @@
+<div id='new'>
+logged in as : {{Name}}
+<br>
+</div>
+<hr>
+<div>
+
+
+<h4> Enter the passenger info : <h4>
+
+<form name="passenger_info" id="someform" method="post" action='/home/pay' style="border:3px solid #ccc; padding: 50px">
+
+<input type="submit" name="Submit">
+<input type="reset" name="Reset"><br>
+<hr>  
+</form>
+<script>
+$(document).ready(function(){
+	var t = "";
+	for(var i=0; i<{{passenger}}; i++){
+		t+='Passenger Name : <input type="text" name="Pname'+i+'" placeholder="name" autofocus><br> '+
+	'Passenger Age : <input type="number" name="Page'+i+'" > <br>'+
+	'Passenger Gender : <input type="radio" name="Pgender'+i+'" value="M" > Male'+
+	'<input type="radio" name="Pgender'+i+'" value="F"> Female<br><hr>';
+
+	}
+	console.log(t);
+	var already = $("#someform").html();
+	$("#someform").html(t + already);
+});
+</script>
+<div id='new'>
+	<a href="/home/buses">Back</a>
+	<a href="/">Logout </a>
+</div>
+

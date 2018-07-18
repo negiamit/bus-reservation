@@ -1,0 +1,56 @@
+<div id='new'>
+logged in as : {{Name}}
+<br>
+</div>
+<hr>
+
+{{#if data}}
+
+<h3> The available buses on {{date}} are : </h3>
+<div>
+
+<form method="post" name="form4" action='/home/info' style="border:3px solid #ccc; padding: 50px">
+   <table id ="book">
+  <tr>
+    <th>Bus no</th>
+    <th>Bus Name</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>Seats left </th>
+    <th>Time </th>
+    <th>Price (per ticket)</th>
+    <th> Book </th>
+  </tr>
+ {{#each data}}
+  <tr>
+    <td>{{bus_no}}</td>
+    <td>{{bc_name}}</td>
+    <td>{{source}}</td>
+    <td>{{destination}} </td>
+    <td>{{seats_left}}</td>
+    <td>{{time}}</td>
+    <td>{{price}}</td>
+	 <td><input type="radio" name="busoption" value="{{bus_no}}"></td>
+  </tr>
+ {{/each}}
+</table>
+
+<input type="submit" name="Submit" >
+</form>
+<hr>
+{{else}}
+  <h2> No buses available on {{date}}.
+
+{{/if}}
+
+<div class=footer>
+<div id='new'>
+	<a href="/home">Back</a>
+	<a href="/">Logout </a>
+</div>
+</div>
+
+
+
+<!--[{"bus_no":"1","bus_name":"Sharma Travels","source":"Bangalore","destination":"Chennai","seats_left":30,"time":"-00:00:22","price":2300}]
+-->

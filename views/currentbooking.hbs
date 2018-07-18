@@ -1,0 +1,76 @@
+<div id='new'>
+logged in as : {{Name}}
+<br>
+</div>
+<hr>
+{{#if data}}
+<h3> Current Bookings </h3>
+<form name="form4"  method="post" action = "/cancel" ">
+
+<table style="border:3px solid #ccc; padding: 50px"> 
+	<tr>
+		<th>Source</th>
+		<th>Destination </th>
+		<th> Bus no </th>
+		<th> Bus Company Name </th>
+		<th>Travel date </th>
+		<th> Time </th>
+		<th>Seats Booked </th>
+		<th>Cancel Booking </th>
+	</tr>
+	{{#each data}}
+	<tr>
+		<td>{{source}}</td>
+		<td>{{destination}}</td>
+		<td>{{bus_no}}</td>
+		<td>{{bc_name}}</td>
+		<td>{{date_travel}}</td>
+		<td> {{time}} </td>
+		<td>{{seats}}</td>
+		<td><input type="radio" name="cancel" id="check" value="{{booking_id}}" > </td> 
+	</tr>
+
+{{/each}}
+</table>	
+<center>
+<input type="submit" name="Submit">
+<input type="reset" name="Reset">
+</center>
+</form>
+
+{{else}}
+	<h2> No current bookings <h2>
+{{/if}}
+
+
+
+<hr>
+
+<div id='new'>
+	<a href="/home">Back</a>
+	<a href="/">Logout </a>
+
+</div>
+
+
+
+<script type="text/javascript">
+function checkRadio(){
+	 x = document.getElementById("check").checked;
+	console.log(x);
+}
+	
+function validateForm4() {
+	var cancel="";
+	console.log("Here");
+	 cancel = document.getElementById("check").checked;
+	console.log("Cancel val : "+ cancel);
+	if(cancel!=true||cancel!=false){
+		  alert("Select a reservation to cancel");
+          return false;
+    }
+}
+    
+</script>
+
+

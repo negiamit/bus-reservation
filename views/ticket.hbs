@@ -1,0 +1,52 @@
+<div id='new'>
+logged in as : {{Name}}
+<br>
+</div>
+<center><h2>Payment Successful</h2></center>
+<hr>
+<center><h3>Ticket Details</h3></center>
+{{#each data}}
+<table style="border:3px solid #ccc; padding: 50px">
+	<tr>
+		<th> Passenger Name <th>
+		<th> Passenger age </th>
+		<th> Passenger Gender </th>
+	</tr>	
+	<tr>
+		<td>{{pg_name}}<td>
+		<td>{{pg_age}}</td>
+		<td>{{pg_gender}}</td>
+	</tr>
+</table>
+{{/each}}
+
+
+<table style="border:3px solid #ccc; padding: 50px">
+	<tr>
+		<td><h3>From</h3></td>
+		<td> {{Source}} </td>
+	</tr>
+	<tr>
+		<td><h3>To </h3></td>
+		<td> {{Destination}} </td>
+	</tr>
+	<tr>
+		<td><h3>Total Seats</h3></td>
+		<td> {{Seats}} </td>
+	</tr>
+	<tr>
+		<td><h3>Total Price</h3></td>
+		<td>{{Price}}  </td>
+	</tr>
+	<tr>
+		<td><h3>Pick up Location</h3></td>
+		<td>{{Ploc}}  </td>
+	</tr>
+</table>
+
+<div id='new'>
+	<a href="/home/buses">Back</a>
+	<a href="/">Logout </a>
+	<a href="/home"> Homepage </a>
+</div>
+

@@ -1,0 +1,53 @@
+<script type="text/javascript">
+	
+function validateForm2() {
+	console.log("Form working")
+    var username = document.forms["form2"]["username"].value;
+ 	var password = document.forms["form2"]["password"].value;   
+	var name = document.forms["form2"]["name"].value;
+ 	var phone = document.forms["form2"]["phone"].value;
+ 	var gender = document.forms["form2"]["gender"].value;
+ 	var email = document.forms["form2"]["email"].value;
+   if (username== ""||password==""||name==""||phone==""||gender==""||email=="") {
+   	
+       alert("Values must be entered");
+        return false;
+    }
+}
+
+</script> 
+
+<h1> Enter the following details</h1>
+<br>
+<form action='/Sign'  name='form2' onsubmit="return validateForm2()" method="post" style="border:3px solid #ccc; padding: 50px">
+<div style="padding-top: 20px"><br>
+Enter username :<input type="text" name="username" autofocus>
+<br>
+Enter password : <input type="password" name="password"  id= "myInput">
+<br>
+Enter name : <input type="text" name="name"> <br>
+<input type="radio" name="gender" value="M" > Male<br>
+<input type="radio" name="gender" value="F"> Female<br>  
+<br>
+Enter phone no : <input type="text" name="phone"> <br>
+
+Enter emailID : <input type="email" name="email"><br>
+
+<input type="checkbox" onclick="show()"> Show Password
+<br>
+<input type="submit" name='Submit'>
+<input type="reset" name="reset">
+<br>
+</div>
+</form>
+
+<b>{{Status}}</b>
+
+<div id="new">
+  <a href="/"> Back </a>
+</div>
+
+<script src='/javascripts/showpw.js'>
+</script>
+
+

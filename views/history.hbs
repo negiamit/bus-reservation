@@ -1,0 +1,47 @@
+<div id='new'>
+logged in as : {{Name}}
+<br>
+</div>
+<hr>
+
+
+{{#if data}}
+<h3> Previous Bookings </h3>
+
+
+<table style="border:3px solid #ccc; padding: 50px"> 
+	<tr>
+		<th>Source</th>
+		<th>Destination </th>
+		<th> Bus no </th>
+		<th> Bus Company Name </th>
+		<th>Travel date </th>
+		<th> Time </th>
+		<th>Seats Booked </th>
+	</tr>
+	{{#each data}}
+	<tr>
+		<td>{{source}}</td>
+		<td>{{destination}}</td>
+		<td>{{bus_no}}</td>
+		<td>{{bc_name}}</td>
+		<td>{{date_travel}}</td>
+		<td> {{time}} </td>
+		<td>{{seats}}</td>
+	</tr>
+	{{/each}}
+</table>	
+
+{{else}}
+	<h2> No bookings made </h2>
+
+{{/if}}
+
+
+<hr>
+
+<div id='new'>
+	<a href="/home">Back</a>
+	<a href="/">Logout </a>
+
+</div>

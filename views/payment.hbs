@@ -1,0 +1,34 @@
+<div id='new'>
+logged in as : {{Name}}
+<br>
+</div>
+<hr>
+<form name="payment" method="post" action="/home/ticket" style="border:3px solid #ccc; padding: 50px">
+<table>
+	<tr>
+		<td>From</td>
+		<td> {{Source}} </td>
+	</tr>
+	<tr>
+		<td>To </td>
+		<td> {{Destination}} </td>
+	</tr>
+	<tr>
+		<td>Total Seats</td>
+		<td> {{Seats}} </td>
+	</tr>
+	<tr>
+		<td>Total Price</td>
+		<td>{{Price}}  </td>
+	</tr>
+</table>
+<center style='padding: 30px'>
+<input type="submit" name="submit" value="Confirm and Pay">
+</center>
+</form>
+
+<div id='new'>
+	<a href="/home/pay">Back</a>
+	<a href="/">Logout </a>
+</div>
+

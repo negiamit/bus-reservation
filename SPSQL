@@ -1,0 +1,64 @@
+ DELIMITER //
+ CREATE PROCEDURE RemoveBooking()
+   BEGIN
+
+   Delete FROM booking where booking_id not in (Select booking_id from reservation);
+   END //
+ DELIMITER ;
+ 
+DELIMITER //
+ CREATE PROCEDURE RemoveSeats(IN val int,IN bus varchar(10))
+   BEGIN
+   update bus_info set seats_left=seats_left-val where bus_no = bus;
+   END //
+ DELIMITER ;
+
+
+
+
+DELIMITER //
+ CREATE PROCEDURE AddSeats(IN val int,IN bus varchar(10))
+   BEGIN
+   update bus_info set seats_left=seats_left+val where bus_no = bus;
+   END //
+ DELIMITER ;
+
+
+
+
+
+
+ Cannot add or update a child row: a foreign key constraint fails (`Bus`.`reservation`, CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`booking_id`) REFERENCES `booking` (`booking_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+ 
+
+ /* Forms*/
+input[type=text], input[type=password],input[type=email],input [type=date],input[type=select] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+
+delimeter |
+
+CREATE TRIGGER RemoveBooking AFTER INSERT ON reservation
+       FOR EACH ROW SET 
+       BEGIN
+        Delete FROM booking where booking_id not in (Select booking_id from reservation);
+  		END	;
+  |
+
+
+
+
+  CREATE TRIGGER RemoveBooking AFTER INSERT ON reservation
+       FOR EACH ROW SET 
+       BEGIN
+       Call RemoveBooking();
+  		END	;
+  
